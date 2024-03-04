@@ -7,6 +7,7 @@ const cors = require('cors');
 const app = express();
 
 const userRoutes = require('./routes/userRoutes');
+const gameRoutes = require('./routes/gameRoutes');
 
 app.use(express.json()).use(cookieParser());
 
@@ -25,6 +26,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.use('/api/users', userRoutes);
+app.use('/api/games', gameRoutes);
 
 app.listen(
     process.env.PORT,
