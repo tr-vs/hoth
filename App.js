@@ -12,33 +12,23 @@ import ProfileScreen from './screens/ProfileScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
-const [isSignedIn, setSignedIn] = useState('');
 
 export default function App() {
     return (
         <NavigationContainer>
-            isSignedIn ? (
-                <>
-                    <Stack.Navigator>
-                        <Stack.Screen 
-                            name="MainTabs"
-                            component={MainTabs} // Wrap the tab navigator inside a screen
-                            options={{ headerShown: false }} // Hide header for tab navigator
-            
-                        />
-                        <Stack.Screen
-                            name="ProfileScreen"
-                            component={ProfileScreen}
-                            options={{ headerShown: false }}
-                        />
-                    </Stack.Navigator>
-                </>
-                ) : (
-                <>
-                    <Stack.Screen name="SignIn" component={SignInScreen} />
-                </>
-                );
-
+            <Stack.Navigator>
+                <Stack.Screen 
+                    name="MainTabs"
+                    component={MainTabs} // Wrap the tab navigator inside a screen
+                    options={{ headerShown: false }} // Hide header for tab navigator
+      
+                />
+                <Stack.Screen
+                    name="ProfileScreen"
+                    component={ProfileScreen}
+                    options={{ headerShown: false }}
+                />
+            </Stack.Navigator>
         </NavigationContainer>
     );
 }
