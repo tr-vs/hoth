@@ -10,7 +10,7 @@ export default function ProfileScreen( {navigation} ) {
           source={require('../assets/profileicon.png')}
         />
         <View style={styles.profileInfo}>
-          <Text style={styles.username}>buttsniffer42</Text>
+          <Text style={styles.username}>teresa</Text>
           <View style={styles.profileStats}>
             <Image
               style={styles.snipedIcon}

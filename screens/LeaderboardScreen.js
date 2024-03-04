@@ -37,7 +37,7 @@ export default function LeaderboardScreen({ navigation }) {
           <View style={styles.mostSnipedContainer}>
             <Image style={styles.iconInStats} source={require('../assets/profileicon.png')} />
             <View style={styles.textContainer}>
-              <Text style={styles.statsText}>buttsniffer42</Text>
+              <Text style={styles.statsText}>teresa</Text>
               <Text style={styles.textCounter}>Got sniped 42 times</Text>
             </View>
           </View>
