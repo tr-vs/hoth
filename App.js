@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-
+import { useState } from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -23,12 +23,17 @@ export default function App() {
                     options={{ headerShown: false }} // Hide header for tab navigator
       
                 />
+                <Stack.Screen
+                    name="ProfileScreen"
+                    component={ProfileScreen}
+                    options={{ headerShown: false }}
+                />
             </Stack.Navigator>
         </NavigationContainer>
     );
 }
 
-function MainTabs() {
+function MainTabs({ navigation }) {
     return (
         <Tab.Navigator 
           initialRouteName="Feed"
@@ -50,10 +55,6 @@ function MainTabs() {
             <Tab.Screen
                 name="Leaderboard"
                 component={LeaderboardScreen}
-            />
-            <Tab.Screen
-                name="Profile"
-                component={ProfileScreen}
             />
         </Tab.Navigator>
     );

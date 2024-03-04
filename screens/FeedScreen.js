@@ -2,7 +2,7 @@ import React from 'react';
 import { ScrollView, View, Text, Image, StyleSheet } from 'react-native';
 import PostContent from '../components/PostContent'; // Import the new component
 
-export default function FeedScreen() {
+export default function FeedScreen({ navigation }) {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.GameNameTextContainer}>
