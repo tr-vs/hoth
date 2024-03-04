@@ -2,11 +2,11 @@ const { collection, addDoc } = require('firebase/firestore');
 const { db } = require('../../firebaseConfig');
 
 const signupUser = async (req, res) => {
-    const { username, email } = req.body;
+    const { userId, email } = req.body;
     try {
         const docRef = await addDoc(collection(db, 'users'), {
-            username: username,
-            email: email,
+            userId,
+            email,
             currentGame: -1,
             snipes: 0,
             sniped: 0,
