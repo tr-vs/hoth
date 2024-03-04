@@ -1,9 +1,11 @@
-const { collection, addDoc } = require('firebase/firestore');
+const { doc, setDoc } = require('firebase/firestore');
 const { db } = require('../../firebaseConfig');
 
 const createGame = async (req, res) => {
     const { players } = req.body;
     let playersObject = {};
+    const start = new Date();
+    const id = `${Math.floor(Math.random() * 10000)}`;
 
     for (const player of players) {
         const playerObject = {
@@ -15,14 +17,13 @@ const createGame = async (req, res) => {
     }
 
     try {
-        const docRef = await addDoc(collection(db, 'games'), {
+        await setDoc(doc(db, 'games', id), {
             players: playersObject,
-            id: Math.floor(Math.random() * 10000),
-            start: new Date(),
+            start,
         });
-        console.log('Document written with ID: ', docRef.id);
-    } catch (e) {
-        console.error('Error adding document: ', e);
+        res.status(200).json({ players, start, id });
+    } catch (error) {
+        res.status(400).json({ error });
     }
 };
 
