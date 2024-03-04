@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-
+import { useState } from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -12,25 +12,40 @@ import ProfileScreen from './screens/ProfileScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
+const [isSignedIn, setSignedIn] = useState('');
 
 export default function App() {
     return (
         <NavigationContainer>
-            <Stack.Navigator>
-                <Stack.Screen 
-                    name="MainTabs"
-                    component={MainTabs} // Wrap the tab navigator inside a screen
-                    options={{ headerShown: false }} // Hide header for tab navigator
-      
-                />
-            </Stack.Navigator>
+            isSignedIn ? (
+                <>
+                    <Stack.Navigator>
+                        <Stack.Screen 
+                            name="MainTabs"
+                            component={MainTabs} // Wrap the tab navigator inside a screen
+                            options={{ headerShown: false }} // Hide header for tab navigator
+            
+                        />
+                        <Stack.Screen
+                            name="ProfileScreen"
+                            component={ProfileScreen}
+                            options={{ headerShown: false }}
+                        />
+                    </Stack.Navigator>
+                </>
+                ) : (
+                <>
+                    <Stack.Screen name="SignIn" component={SignInScreen} />
+                </>
+                );
+
         </NavigationContainer>
     );
 }
 
-function MainTabs() {
+function MainTabs({ navigation }) {
     return (
-        <Tab.Navigator initialRouteName="Feed">
+        <Tab.Navigator initialRouteName="Feed" screenOptions={{headerShown: false }}>
             <Tab.Screen
                 name="Feed"
                 component={FeedScreen}
@@ -42,10 +57,6 @@ function MainTabs() {
             <Tab.Screen
                 name="Leaderboard"
                 component={LeaderboardScreen}
-            />
-            <Tab.Screen
-                name="Profile"
-                component={ProfileScreen}
             />
         </Tab.Navigator>
     );
