@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, View, Text, Image, StyleSheet } from 'react-native';
+import { ScrollView, View, Text, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import PostContent from '../components/PostContent'; // Import the new component
 
 export default function FeedScreen({ navigation }) {
@@ -7,7 +7,9 @@ export default function FeedScreen({ navigation }) {
     <ScrollView style={styles.container}>
       <View style={styles.GameNameTextContainer}>
         <Text style={styles.GameNameText}>Game Name</Text>
-        <Image style={styles.profileIcon} source={require('../assets/profileicon.png')} />
+        <TouchableWithoutFeedback onPress={() => navigation.navigate('ProfileScreen')}>
+          <Image style={styles.profileIcon} source={require('../assets/profileicon.png')} />
+        </TouchableWithoutFeedback>
       </View>
       <PostContent
         postText="trvs sniped Lance994!"
