@@ -35,7 +35,15 @@ export default function App() {
 
 function MainTabs({ navigation }) {
     return (
-        <Tab.Navigator initialRouteName="Feed" screenOptions={{headerShown: false }}>
+        <Tab.Navigator 
+          initialRouteName="Feed"
+          screenOptions={{ 
+            headerShown: false,
+            tabBarStyle: { backgroundColor: '#303030' }, 
+            tabBarActiveTintColor: '#8165FF', 
+            tabBarInactiveTintColor: '#D0D0D0', 
+          }}
+        >
             <Tab.Screen
                 name="Feed"
                 component={FeedScreen}
