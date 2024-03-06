@@ -10,15 +10,15 @@ export default function FeedScreen({ navigation }) {
       <ScrollView>
         <PostContent
           postText="trvs sniped Lance994!"
-          imageSource={require('../assets/IMG_7953.jpeg')}
+          imageSource={require('../assets/download.jpg')}
         />
         <PostContent
           postText="trvs sniped Lance994!"
-          imageSource={require('../assets/IMG_7953.jpeg')}
+          imageSource={require('../assets/download.jpg')}
         />
         <PostContent
           postText="trvs sniped Lance994!"
-          imageSource={require('../assets/IMG_7953.jpeg')}
+          imageSource={require('../assets/download.jpg')}
         />
       </ScrollView>
     </SafeAreaView>
